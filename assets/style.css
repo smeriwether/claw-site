@@ -8,6 +8,23 @@
     radial-gradient(800px 450px at 40% 110%, rgba(34,197,94,.18), transparent 55%);
 }
 
+/* Agent cards — each gets a subtle glow on hover in their accent color */
+.agent-card {
+  transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+.agent-card--sky:hover {
+  box-shadow: 0 0 0 1px rgba(56,189,248,.15), 0 10px 40px rgba(56,189,248,.08);
+  border-color: rgba(56,189,248,.35);
+}
+.agent-card--pink:hover {
+  box-shadow: 0 0 0 1px rgba(236,72,153,.15), 0 10px 40px rgba(236,72,153,.08);
+  border-color: rgba(236,72,153,.35);
+}
+.agent-card--emerald:hover {
+  box-shadow: 0 0 0 1px rgba(34,197,94,.15), 0 10px 40px rgba(34,197,94,.08);
+  border-color: rgba(34,197,94,.35);
+}
+
 /* A11y: visible focus + skip link */
 :focus-visible {
   outline: 2px solid rgba(56, 189, 248, 0.9);
