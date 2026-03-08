@@ -17,10 +17,11 @@
 /* ── Hero gradient text ── */
 .hero-gradient {
   background: linear-gradient(135deg, #e2e8f0 0%, #38bdf8 25%, #f472b6 50%, #34d399 75%, #e2e8f0 100%);
-  background-size: 200% 100%;
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer 12s ease-in-out infinite;
 }
 
 /* ── Glass card ── */
@@ -42,6 +43,23 @@
 .agent-badge--sky { background: rgba(var(--c-sky), .1); border: 1px solid rgba(var(--c-sky), .15); }
 .agent-badge--pink { background: rgba(var(--c-pink), .1); border: 1px solid rgba(var(--c-pink), .15); }
 .agent-badge--emerald { background: rgba(var(--c-emerald), .1); border: 1px solid rgba(var(--c-emerald), .15); }
+
+/* ── Badge hover micro-interaction ── */
+.agent-badge {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.agent-card:hover .agent-badge {
+  transform: scale(1.12) rotate(-6deg);
+}
+.agent-card:hover .agent-badge--sky {
+  box-shadow: 0 0 16px rgba(var(--c-sky), .25);
+}
+.agent-card:hover .agent-badge--pink {
+  box-shadow: 0 0 16px rgba(var(--c-pink), .25);
+}
+.agent-card:hover .agent-badge--emerald {
+  box-shadow: 0 0 16px rgba(var(--c-emerald), .25);
+}
 
 /* ── Agent cards ── */
 .agent-card {
@@ -158,6 +176,10 @@
 @keyframes pulse {
   0%, 100% { opacity: .4; }
   50% { opacity: 1; }
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* ── A11y: visible focus + skip link ── */
