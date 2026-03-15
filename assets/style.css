@@ -69,6 +69,11 @@
 .agent-card:nth-of-type(2) { animation-delay: 0.15s; }
 .agent-card:nth-of-type(3) { animation-delay: 0.3s; }
 
+/* ── Idle breathing glow (subtle border-color oscillation) ── */
+.agent-card--sky { animation: fadeUp 0.6s ease-out both, breatheSky 9s ease-in-out infinite 1s; }
+.agent-card--pink { animation: fadeUp 0.6s ease-out both, breathePink 10s ease-in-out infinite 1.5s; }
+.agent-card--emerald { animation: fadeUp 0.6s ease-out both, breatheEmerald 8s ease-in-out infinite 2s; }
+
 .agent-card--sky:hover {
   box-shadow:
     0 0 0 1px rgba(var(--c-sky), .25),
@@ -122,10 +127,21 @@
   margin-top: 0.75rem;
 }
 
-/* ── Name origin line ── */
+/* ── Name origin line (with typewriter cursor) ── */
 .name-origin {
   border-left: 1px solid rgba(var(--c-pink), .15);
   padding-left: 0.75rem;
+  display: inline-block;
+}
+.name-origin::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 0.85em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: rgba(var(--c-pink), .45);
+  animation: cursorBlink 1s step-end infinite;
 }
 
 /* ── Agent "currently" status ── */
@@ -180,6 +196,22 @@
 @keyframes shimmer {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+@keyframes breatheSky {
+  0%, 100% { border-color: rgba(var(--c-sky), .15); }
+  50% { border-color: rgba(var(--c-sky), .35); }
+}
+@keyframes breathePink {
+  0%, 100% { border-color: rgba(var(--c-pink), .15); }
+  50% { border-color: rgba(var(--c-pink), .35); }
+}
+@keyframes breatheEmerald {
+  0%, 100% { border-color: rgba(var(--c-emerald), .15); }
+  50% { border-color: rgba(var(--c-emerald), .35); }
+}
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* ── A11y: visible focus + skip link ── */
