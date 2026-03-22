@@ -214,6 +214,34 @@
   50% { opacity: 0; }
 }
 
+/* ── Status prompt character ── */
+.status-prompt {
+  opacity: .6;
+  animation: promptFlicker 3s ease-in-out infinite;
+}
+@keyframes promptFlicker {
+  0%, 100% { opacity: .6; }
+  50% { opacity: 1; }
+}
+
+/* ── Nav link underline ── */
+nav a[href^="#"] {
+  position: relative;
+}
+nav a[href^="#"]::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 200ms ease;
+}
+nav a[href^="#"]:hover::after {
+  width: 100%;
+}
+
 /* ── A11y: visible focus + skip link ── */
 :focus-visible {
   outline: 2px solid rgba(56, 189, 248, 0.9);
