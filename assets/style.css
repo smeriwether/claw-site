@@ -287,6 +287,83 @@ nav a[href^="#"]:hover::after {
 }
 .skip-link:focus { transform: translateY(0); }
 
+/* ── Overheard carousel (CSS-only rotation) ── */
+.overheard-carousel {
+  position: relative;
+  min-height: 3.5rem;
+}
+.overheard-quote {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: carouselFade 25s ease-in-out infinite;
+}
+.overheard-q1 { animation-delay: 0s; }
+.overheard-q2 { animation-delay: 5s; }
+.overheard-q3 { animation-delay: 10s; }
+.overheard-q4 { animation-delay: 15s; }
+.overheard-q5 { animation-delay: 20s; }
+
+.overheard-attr {
+  font-style: normal;
+  font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+@keyframes carouselFade {
+  0%, 4% { opacity: 0; }
+  6%, 16% { opacity: 1; }
+  20%, 100% { opacity: 0; }
+}
+
+/* ── Watson scan-line on hover ── */
+.agent-card--emerald {
+  position: relative;
+  overflow: hidden;
+}
+.agent-card--emerald::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(var(--c-emerald), .03) 50%,
+    transparent 100%
+  );
+  background-size: 100% 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+.agent-card--emerald:hover::before {
+  opacity: 1;
+  animation: scanDrift 4s linear infinite;
+}
+
+@keyframes scanDrift {
+  from { background-position: 0 0; }
+  to { background-position: 0 100px; }
+}
+
+/* ── Kern monospace emphasis on hover ── */
+.agent-card--pink blockquote {
+  font-family: inherit;
+  transition: font-family 300ms ease, letter-spacing 300ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.agent-card--pink:hover blockquote {
+  font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
