@@ -162,16 +162,41 @@
 .status-dot--pink { background: rgba(var(--c-pink), .5); box-shadow: 0 0 4px rgba(var(--c-pink), .3); }
 .status-dot--emerald { background: rgba(var(--c-emerald), .5); box-shadow: 0 0 4px rgba(var(--c-emerald), .3); }
 
+/* ── Scanline overlay (hero only) ── */
+.glow.rounded-3xl {
+  position: relative;
+}
+.glow.rounded-3xl::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,.015) 2px,
+    rgba(255,255,255,.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ── Principle cards ── */
 .principle-card {
   position: relative;
   overflow: hidden;
-  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease, background-color 200ms ease;
 }
 .principle-card:hover {
   border-color: rgba(255,255,255,.18);
   transform: translateY(-1px);
+  background-color: rgba(255,255,255,.03);
 }
+.principle-card:nth-child(1):hover { box-shadow: 0 0 0 1px rgba(var(--c-sky), .08), 0 8px 24px rgba(var(--c-sky), .06); }
+.principle-card:nth-child(2):hover { box-shadow: 0 0 0 1px rgba(var(--c-pink), .08), 0 8px 24px rgba(var(--c-pink), .06); }
+.principle-card:nth-child(3):hover { box-shadow: 0 0 0 1px rgba(var(--c-emerald), .08), 0 8px 24px rgba(var(--c-emerald), .06); }
+.principle-card:nth-child(4):hover { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 8px 24px rgba(255,255,255,.04); }
 .principle-num {
   position: absolute;
   top: 0.5rem;
