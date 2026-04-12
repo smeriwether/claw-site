@@ -10,7 +10,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ── Ambient background ── */
 .gridfade {
   background-image:
     radial-gradient(1100px 520px at 14% -8%, rgba(var(--c-sky), 0.28), transparent 60%),
@@ -49,7 +48,41 @@ body {
   pointer-events: none;
 }
 
-/* ── Hero gradient text ── */
+.hero-orbit {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  filter: blur(0.2px);
+  pointer-events: none;
+}
+
+.hero-orbit--sky {
+  top: 8%;
+  right: 6%;
+  width: 12rem;
+  height: 12rem;
+  box-shadow: inset 0 0 60px rgba(var(--c-sky), 0.06), 0 0 80px rgba(var(--c-sky), 0.06);
+  animation: orbitFloat 16s ease-in-out infinite;
+}
+
+.hero-orbit--pink {
+  bottom: 10%;
+  left: -2rem;
+  width: 8rem;
+  height: 8rem;
+  box-shadow: inset 0 0 50px rgba(var(--c-pink), 0.06), 0 0 70px rgba(var(--c-pink), 0.05);
+  animation: orbitFloat 18s ease-in-out infinite reverse;
+}
+
+.hero-orbit--emerald {
+  bottom: -3rem;
+  right: 28%;
+  width: 10rem;
+  height: 10rem;
+  box-shadow: inset 0 0 50px rgba(var(--c-emerald), 0.06), 0 0 80px rgba(var(--c-emerald), 0.05);
+  animation: orbitFloat 20s ease-in-out infinite;
+}
+
 .hero-gradient {
   background: linear-gradient(135deg, #f8fafc 0%, #7dd3fc 24%, #f9a8d4 54%, #6ee7b7 78%, #f8fafc 100%);
   background-size: 280% 100%;
@@ -59,7 +92,6 @@ body {
   animation: shimmer 12s ease-in-out infinite;
 }
 
-/* ── Glass surfaces ── */
 .glow {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 16px 40px rgba(0, 0, 0, 0.34);
 }
@@ -98,8 +130,8 @@ body {
 }
 
 .console-copy {
-  color: rgba(226, 232, 240, 0.82);
-  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.88);
+  line-height: 1.58;
 }
 
 .console-line--sky .console-name,
@@ -117,7 +149,6 @@ body {
   color: rgba(var(--c-emerald), 0.9);
 }
 
-/* ── Agent emoji badge ── */
 .agent-badge {
   display: flex;
   align-items: center;
@@ -157,7 +188,6 @@ body {
   text-transform: uppercase;
 }
 
-/* ── Agent cards ── */
 .agent-card {
   position: relative;
   overflow: hidden;
@@ -239,7 +269,6 @@ body {
   box-shadow: 0 0 20px rgba(var(--c-emerald), 0.22);
 }
 
-/* ── Quotes ── */
 .agent-quote {
   border-left: 2px solid transparent;
   border-radius: 0 0.75rem 0.75rem 0;
@@ -277,7 +306,6 @@ body {
   font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* ── Agent signal strips ── */
 .signal-strip {
   display: grid;
   gap: 1rem;
@@ -300,19 +328,22 @@ body {
 }
 
 .signal-label,
-.mini-heading {
+.mini-heading,
+.temperament-label,
+.agent-ledger dt {
   font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.72);
 }
 
 .signal-copy {
   margin-top: 0.35rem;
-  color: rgba(226, 232, 240, 0.82);
-  font-size: 0.78rem;
-  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.88);
+  font-size: 0.81rem;
+  line-height: 1.65;
 }
 
 .name-origin {
@@ -332,7 +363,27 @@ body {
   animation: cursorBlink 1s step-end infinite;
 }
 
-/* ── Signals area ── */
+.agent-ledger {
+  display: grid;
+  gap: 1rem;
+}
+
+.agent-ledger div {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+
+.agent-ledger dt {
+  color: rgba(148, 163, 184, 0.82);
+}
+
+.agent-ledger dd {
+  margin-top: 0.45rem;
+  color: rgba(226, 232, 240, 0.88);
+  font-size: 0.84rem;
+  line-height: 1.72;
+}
+
 .signal-board {
   position: relative;
   overflow: hidden;
@@ -353,8 +404,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(2, 6, 23, 0.55);
   padding: 1rem 1rem 1rem 1.15rem;
-  color: rgba(226, 232, 240, 0.82);
-  line-height: 1.65;
+  color: rgba(226, 232, 240, 0.88);
+  line-height: 1.72;
   overflow: hidden;
 }
 
@@ -384,14 +435,64 @@ body {
   display: inline-block;
   margin-bottom: 0.45rem;
   font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.74);
+  color: rgba(226, 232, 240, 0.72);
 }
 
-/* ── Section heading accent bar ── */
+.temperament-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.temperament {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.3);
+  padding: 1.4rem;
+}
+
+.temperament::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.temperament--sky::before {
+  background: linear-gradient(90deg, rgba(var(--c-sky), 0.1), transparent 38%);
+}
+
+.temperament--pink::before {
+  background: linear-gradient(90deg, rgba(var(--c-pink), 0.1), transparent 38%);
+}
+
+.temperament--emerald::before {
+  background: linear-gradient(90deg, rgba(var(--c-emerald), 0.1), transparent 38%);
+}
+
+.temperament h3 {
+  position: relative;
+  margin-top: 0.55rem;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.temperament p:last-child {
+  position: relative;
+  margin-top: 0.55rem;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
 .section-bar {
   height: 2px;
   width: 2.3rem;
@@ -399,7 +500,6 @@ body {
   margin-top: 0.75rem;
 }
 
-/* ── Principles ── */
 .principle-card {
   position: relative;
   overflow: hidden;
@@ -440,7 +540,6 @@ body {
   user-select: none;
 }
 
-/* ── Overheard quotes ── */
 .overheard {
   position: relative;
   overflow: hidden;
@@ -497,9 +596,13 @@ body {
   text-transform: uppercase;
 }
 
-/* ── Nav link underline ── */
+footer p:last-child {
+  color: rgba(148, 163, 184, 0.68);
+}
+
 nav a[href^="#"] {
   position: relative;
+  color: rgba(226, 232, 240, 0.82);
 }
 
 nav a[href^="#"]::after {
@@ -517,7 +620,6 @@ nav a[href^="#"]:hover::after {
   width: 100%;
 }
 
-/* ── A11y: visible focus + skip link ── */
 :focus-visible {
   outline: 2px solid rgba(56, 189, 248, 0.92);
   outline-offset: 3px;
@@ -541,7 +643,6 @@ nav a[href^="#"]:hover::after {
   transform: translateY(0);
 }
 
-/* ── Watson scanline + animations ── */
 .agent-card--emerald::after {
   content: "";
   position: absolute;
@@ -558,10 +659,15 @@ nav a[href^="#"]:hover::after {
   animation: scanDrift 4s linear infinite;
 }
 
-/* ── Responsive helpers ── */
 @media (min-width: 640px) {
   .signal-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .temperament-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -578,7 +684,6 @@ nav a[href^="#"]:hover::after {
   }
 }
 
-/* ── Animations ── */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -646,6 +751,16 @@ nav a[href^="#"]:hover::after {
   }
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes orbitFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.03);
   }
 }
 
