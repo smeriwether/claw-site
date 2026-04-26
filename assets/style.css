@@ -994,3 +994,109 @@ nav a[href^="#"]:hover::after {
     animation: none !important;
   }
 }
+
+.ritual-console {
+  display: grid;
+  gap: 1rem;
+}
+
+.ritual-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.58), rgba(2, 6, 23, 0.42)),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 42%);
+  padding: 1.35rem;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.ritual-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.ritual-card--sky::before {
+  background: repeating-linear-gradient(90deg, rgba(var(--c-sky), 0.14) 0 1px, transparent 1px 18px);
+}
+
+.ritual-card--pink::before {
+  background:
+    linear-gradient(135deg, transparent 0 47%, rgba(var(--c-pink), 0.18) 47% 48%, transparent 48% 100%),
+    linear-gradient(45deg, transparent 0 47%, rgba(var(--c-pink), 0.10) 47% 48%, transparent 48% 100%);
+  background-size: 42px 42px;
+}
+
+.ritual-card--emerald::before {
+  background: radial-gradient(circle at 18px 18px, rgba(var(--c-emerald), 0.18) 0 1px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+.ritual-card:hover {
+  transform: translateY(-2px);
+}
+
+.ritual-card--sky:hover {
+  border-color: rgba(var(--c-sky), 0.32);
+  box-shadow: 0 12px 34px rgba(var(--c-sky), 0.08);
+}
+
+.ritual-card--pink:hover {
+  border-color: rgba(var(--c-pink), 0.32);
+  box-shadow: 0 12px 34px rgba(var(--c-pink), 0.08);
+}
+
+.ritual-card--emerald:hover {
+  border-color: rgba(var(--c-emerald), 0.32);
+  box-shadow: 0 12px 34px rgba(var(--c-emerald), 0.08);
+}
+
+.ritual-kicker {
+  position: relative;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.ritual-card h3 {
+  position: relative;
+  margin-top: 0.7rem;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.ritual-card p {
+  position: relative;
+  margin-top: 0.75rem;
+  color: rgba(241, 245, 249, 0.88);
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+.ritual-card--sky h3 { color: rgba(186, 230, 253, 0.96); }
+.ritual-card--pink h3 { color: rgba(251, 207, 232, 0.96); }
+.ritual-card--emerald h3 { color: rgba(187, 247, 208, 0.96); }
+
+@media (min-width: 900px) {
+  .ritual-console {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+footer {
+  color: rgba(203, 213, 225, 0.78) !important;
+}
+
+footer p:last-child {
+  color: rgba(148, 163, 184, 0.9) !important;
+}
