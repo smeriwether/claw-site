@@ -1100,3 +1100,237 @@ footer {
 footer p:last-child {
   color: rgba(148, 163, 184, 0.9) !important;
 }
+
+.artifact-shelf {
+  display: grid;
+  gap: 1rem;
+}
+
+.artifact-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  min-height: 10.5rem;
+  overflow: hidden;
+  border-radius: 1.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(2, 6, 23, 0.48)),
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.06), transparent 42%);
+  padding: 1.25rem;
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.artifact-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 1.25rem 1rem;
+  height: 1px;
+  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
+.artifact-card:hover {
+  transform: translateY(-2px);
+}
+
+.artifact-card--sky:hover {
+  border-color: rgba(var(--c-sky), 0.34);
+  box-shadow: 0 18px 42px rgba(var(--c-sky), 0.08);
+}
+
+.artifact-card--pink:hover {
+  border-color: rgba(var(--c-pink), 0.34);
+  box-shadow: 0 18px 42px rgba(var(--c-pink), 0.08);
+}
+
+.artifact-card--emerald:hover {
+  border-color: rgba(var(--c-emerald), 0.34);
+  box-shadow: 0 18px 42px rgba(var(--c-emerald), 0.08);
+}
+
+.artifact-object {
+  position: relative;
+  width: 4.7rem;
+  height: 4.7rem;
+  flex: 0 0 auto;
+}
+
+.artifact-object--sky {
+  border-radius: 0.95rem;
+  border: 1px solid rgba(var(--c-sky), 0.24);
+  background: linear-gradient(145deg, rgba(var(--c-sky), 0.18), rgba(15, 23, 42, 0.32));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 26px rgba(var(--c-sky), 0.08);
+}
+
+.artifact-object--sky span {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(var(--c-sky), 0.72);
+}
+
+.artifact-object--sky span:nth-child(1) { top: 1.25rem; }
+.artifact-object--sky span:nth-child(2) { top: 2.25rem; width: 58%; }
+.artifact-object--sky span:nth-child(3) { top: 3.25rem; width: 76%; }
+
+.artifact-object--pink {
+  border-radius: 999px;
+  border: 1px solid rgba(var(--c-pink), 0.22);
+  background: radial-gradient(circle, rgba(var(--c-pink), 0.17), rgba(15, 23, 42, 0.34) 62%);
+  box-shadow: inset 0 0 0 0.55rem rgba(2, 6, 23, 0.5), 0 0 28px rgba(var(--c-pink), 0.08);
+}
+
+.artifact-object--pink span {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 2.1rem;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(var(--c-pink), 0.8), transparent);
+}
+
+.artifact-object--pink span:nth-child(1) { transform: rotate(0deg); }
+.artifact-object--pink span:nth-child(2) { transform: rotate(45deg); }
+.artifact-object--pink span:nth-child(3) { transform: rotate(90deg); }
+.artifact-object--pink span:nth-child(4) { transform: rotate(135deg); }
+
+.artifact-object--emerald span {
+  position: absolute;
+  width: 3.6rem;
+  height: 2.45rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(var(--c-emerald), 0.22);
+  background: linear-gradient(145deg, rgba(var(--c-emerald), 0.14), rgba(15, 23, 42, 0.5));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.artifact-object--emerald span:nth-child(1) {
+  top: 0.55rem;
+  left: 0.35rem;
+  transform: rotate(-7deg);
+}
+
+.artifact-object--emerald span:nth-child(2) {
+  top: 1.2rem;
+  left: 0.75rem;
+  transform: rotate(4deg);
+}
+
+.artifact-object--emerald span:nth-child(3) {
+  top: 1.9rem;
+  left: 0.45rem;
+  transform: rotate(-2deg);
+}
+
+.artifact-kicker {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(203, 213, 225, 0.68);
+}
+
+.artifact-card h3 {
+  margin-top: 0.45rem;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.artifact-card p:last-child {
+  margin-top: 0.65rem;
+  color: rgba(241, 245, 249, 0.84);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.artifact-card--sky h3 { color: rgba(186, 230, 253, 0.96); }
+.artifact-card--pink h3 { color: rgba(251, 207, 232, 0.96); }
+.artifact-card--emerald h3 { color: rgba(187, 247, 208, 0.96); }
+
+@media (min-width: 900px) {
+  .artifact-shelf {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .artifact-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+/* Weekly May 2 contrast pass: keep the dark room, raise the signal. */
+nav a:not(:first-child),
+nav li a {
+  color: rgba(226, 232, 240, 0.9) !important;
+}
+
+nav li a:hover,
+nav li a:focus-visible {
+  color: rgba(248, 250, 252, 1) !important;
+}
+
+section > div:first-child h2,
+main > section > h2 {
+  color: rgba(226, 232, 240, 0.92) !important;
+}
+
+section > div:first-child > p,
+#principles > p,
+#contact > p {
+  color: rgba(203, 213, 225, 0.88) !important;
+}
+
+.agent-card,
+.overheard,
+.signal-board,
+.frequency-card,
+.principle-card,
+.artifact-card,
+.ritual-card,
+.temperament {
+  border-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.agent-card > p,
+.agent-ledger dd,
+.micro-stack span,
+.signal-copy,
+.overheard-quote-card,
+.pulse-note p,
+.frequency-card p,
+.principle-card p,
+.temperament p,
+.ritual-card p,
+.artifact-card p:last-child {
+  color: rgba(241, 245, 249, 0.9) !important;
+}
+
+.signal-label,
+.overheard h3,
+.signal-board h3,
+.frequency-head span,
+.artifact-kicker,
+.ritual-kicker,
+.temperament-label,
+.agent-ledger dt {
+  color: rgba(203, 213, 225, 0.82) !important;
+}
+
+.hero-gradient {
+  line-height: 1.04;
+}
+
+@media (min-width: 1024px) {
+  .agent-card {
+    padding: 2rem;
+  }
+}
