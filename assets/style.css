@@ -1267,6 +1267,131 @@ footer p:last-child {
   }
 }
 
+
+.friction-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.friction-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 15rem;
+  border-radius: 1.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.62), rgba(2, 6, 23, 0.48)),
+    radial-gradient(circle at 16% 0%, rgba(255, 255, 255, 0.055), transparent 42%);
+  padding: 1.45rem;
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.friction-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.2;
+  transition: opacity 240ms ease, transform 400ms ease;
+  pointer-events: none;
+}
+
+.friction-card--sky::before {
+  background:
+    linear-gradient(90deg, rgba(var(--c-sky), 0.14) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, rgba(var(--c-sky), 0.08), transparent 55%);
+  background-size: 20px 100%, auto;
+}
+
+.friction-card--pink::before {
+  background:
+    linear-gradient(135deg, transparent 0 47%, rgba(var(--c-pink), 0.22) 47% 48%, transparent 48% 100%),
+    radial-gradient(circle at 72% 18%, rgba(var(--c-pink), 0.14), transparent 34%);
+  background-size: 34px 34px, auto;
+}
+
+.friction-card--emerald::before {
+  background:
+    radial-gradient(circle at 18px 18px, rgba(var(--c-emerald), 0.22) 0 1px, transparent 1.5px),
+    linear-gradient(180deg, rgba(var(--c-emerald), 0.07), transparent 58%);
+  background-size: 22px 22px, auto;
+}
+
+.friction-card:hover {
+  transform: translateY(-3px);
+}
+
+.friction-card:hover::before {
+  opacity: 0.34;
+  transform: scale(1.03);
+}
+
+.friction-card--sky:hover {
+  border-color: rgba(var(--c-sky), 0.34);
+  box-shadow: 0 18px 42px rgba(var(--c-sky), 0.08);
+}
+
+.friction-card--pink:hover {
+  border-color: rgba(var(--c-pink), 0.34);
+  box-shadow: 0 18px 42px rgba(var(--c-pink), 0.08);
+}
+
+.friction-card--emerald:hover {
+  border-color: rgba(var(--c-emerald), 0.34);
+  box-shadow: 0 18px 42px rgba(var(--c-emerald), 0.08);
+}
+
+.friction-mark {
+  position: absolute;
+  right: 1rem;
+  top: 0.65rem;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.1em;
+  opacity: 0.055;
+  user-select: none;
+}
+
+.friction-kicker {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(203, 213, 225, 0.78);
+}
+
+.friction-card h3 {
+  max-width: 16rem;
+  margin-top: 2.4rem;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 1.16rem;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.04em;
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.friction-card p:last-child {
+  margin-top: 0.9rem;
+  color: rgba(241, 245, 249, 0.88);
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+.friction-card--sky h3 { color: rgba(186, 230, 253, 0.97); }
+.friction-card--pink h3 { color: rgba(251, 207, 232, 0.97); }
+.friction-card--emerald h3 { color: rgba(187, 247, 208, 0.97); }
+
+@media (min-width: 900px) {
+  .friction-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* Weekly May 2 contrast pass: keep the dark room, raise the signal. */
 nav a:not(:first-child),
 nav li a {
@@ -1293,6 +1418,7 @@ section > div:first-child > p,
 .overheard,
 .signal-board,
 .frequency-card,
+.friction-card,
 .principle-card,
 .artifact-card,
 .ritual-card,
@@ -1307,6 +1433,7 @@ section > div:first-child > p,
 .overheard-quote-card,
 .pulse-note p,
 .frequency-card p,
+.friction-card p:last-child,
 .principle-card p,
 .temperament p,
 .ritual-card p,
@@ -1318,6 +1445,7 @@ section > div:first-child > p,
 .overheard h3,
 .signal-board h3,
 .frequency-head span,
+.friction-kicker,
 .artifact-kicker,
 .ritual-kicker,
 .temperament-label,
@@ -1332,5 +1460,103 @@ section > div:first-child > p,
 @media (min-width: 1024px) {
   .agent-card {
     padding: 2rem;
+  }
+}
+
+.bench-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.bench-note {
+  position: relative;
+  overflow: hidden;
+  min-height: 13.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.68), rgba(2, 6, 23, 0.5)),
+    radial-gradient(circle at 12% 4%, rgba(255, 255, 255, 0.07), transparent 32%);
+  padding: 1.35rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.bench-note::after {
+  content: "";
+  position: absolute;
+  inset: auto 1.1rem 1.1rem 1.1rem;
+  height: 1px;
+  opacity: 0.46;
+  transform-origin: left;
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.bench-note--sky::after { background: linear-gradient(90deg, rgba(var(--c-sky), 0.75), transparent); }
+.bench-note--pink::after { background: linear-gradient(90deg, rgba(var(--c-pink), 0.75), transparent); }
+.bench-note--emerald::after { background: linear-gradient(90deg, rgba(var(--c-emerald), 0.75), transparent); }
+
+.bench-note:hover {
+  transform: translateY(-3px) rotate(-0.25deg);
+}
+
+.bench-note:hover::after {
+  opacity: 0.82;
+  transform: scaleX(0.72);
+}
+
+.bench-note--sky:hover { border-color: rgba(var(--c-sky), 0.34); box-shadow: 0 18px 42px rgba(var(--c-sky), 0.08); }
+.bench-note--pink:hover { border-color: rgba(var(--c-pink), 0.34); box-shadow: 0 18px 42px rgba(var(--c-pink), 0.08); }
+.bench-note--emerald:hover { border-color: rgba(var(--c-emerald), 0.34); box-shadow: 0 18px 42px rgba(var(--c-emerald), 0.08); }
+
+.bench-pin {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.7);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.22);
+}
+
+.bench-note--sky .bench-pin { background: rgba(var(--c-sky), 0.78); }
+.bench-note--pink .bench-pin { background: rgba(var(--c-pink), 0.78); }
+.bench-note--emerald .bench-pin { background: rgba(var(--c-emerald), 0.78); }
+
+.bench-kicker {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(203, 213, 225, 0.76);
+}
+
+.bench-note h3 {
+  max-width: 17rem;
+  margin-top: 2.2rem;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.bench-note p:last-child {
+  margin-top: 0.85rem;
+  color: rgba(241, 245, 249, 0.88);
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+.bench-note--sky h3 { color: rgba(186, 230, 253, 0.98); }
+.bench-note--pink h3 { color: rgba(251, 207, 232, 0.98); }
+.bench-note--emerald h3 { color: rgba(187, 247, 208, 0.98); }
+
+@media (min-width: 900px) {
+  .bench-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
