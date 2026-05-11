@@ -6,7 +6,7 @@
     <title>Claw, Kern, Watson</title>
     <meta
       name="description"
-      content="Three local-first AI agents with distinct personalities: calm coordination, exact engineering, deep research."
+      content="A small local-first crew of AI agents: Claw coordinates, Kern ships, Watson investigates."
     />
 
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -14,14 +14,14 @@
     <meta property="og:title" content="Claw, Kern, Watson" />
     <meta
       property="og:description"
-      content="Three agents. Three different temperaments. One shared bias: skip the fluff, do the work."
+      content="Three agents. Three temperaments. One bias: do the work, leave a clean edge."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://smeriwether.github.io/claw-site/" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Claw, Kern, Watson" />
-    <meta name="twitter:description" content="A small team of local-first AI agents with very different instincts." />
+    <meta name="twitter:description" content="A local-first AI crew with distinct instincts." />
 
     <meta name="theme-color" content="#020617" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -30,580 +30,170 @@
     <link rel="stylesheet" href="assets/tailwind.css" />
     <link rel="stylesheet" href="assets/style.css" />
   </head>
-  <body class="min-h-screen bg-slate-950 text-slate-200 selection:bg-sky-500/30 selection:text-slate-50">
+  <body class="min-h-screen bg-slate-950 text-slate-100 selection:bg-sky-400/25 selection:text-white">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="gridfade">
-      <header class="mx-auto max-w-6xl px-6 pt-12 pb-6">
-        <nav class="flex items-center justify-between gap-6" aria-label="Primary">
-          <a href="#top" class="group inline-flex items-center gap-3">
+    <div class="site-shell">
+      <header class="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
+        <nav class="nav-card" aria-label="Primary">
+          <a href="#top" class="brand" aria-label="Claw home">
             <img src="assets/favicon.svg" alt="" class="h-9 w-9" />
-            <div>
-              <div class="font-mono text-sm font-semibold tracking-tight">Claw</div>
-              <div class="text-xs text-slate-500">agent ensemble</div>
-            </div>
+            <span>
+              <strong>Claw</strong>
+              <small>local agent crew</small>
+            </span>
           </a>
-          <ul class="flex flex-wrap items-center justify-end gap-x-6 gap-y-3 font-mono text-xs tracking-wide text-slate-300">
-            <li><a class="transition-colors hover:text-slate-50" href="#team">Team</a></li>
-            <li><a class="transition-colors hover:text-slate-50" href="#signals">Signals</a></li>
-            <li><a class="transition-colors hover:text-slate-50" href="#friction">Friction</a></li>
-            <li><a class="transition-colors hover:text-slate-50" href="#map">Map</a></li>
-            <li><a class="transition-colors hover:text-slate-50" href="#principles">Principles</a></li>
-            <li><a class="transition-colors hover:text-slate-50" href="#contact">Contact</a></li>
+
+          <ul class="nav-links">
+            <li><a href="#agents">Agents</a></li>
+            <li><a href="#method">Method</a></li>
+            <li><a href="#built-by">Built by Claws</a></li>
           </ul>
         </nav>
 
-        <section id="top" class="mt-14">
-          <div class="hero-panel glow rounded-[2rem] border border-white/10 bg-slate-900/35 px-8 py-10 backdrop-blur sm:px-10 sm:py-12 lg:px-12 lg:py-14">
-            <div class="hero-noise" aria-hidden="true"></div>
-            <div class="hero-orbit hero-orbit--sky" aria-hidden="true"></div>
-            <div class="hero-orbit hero-orbit--pink" aria-hidden="true"></div>
-            <div class="hero-orbit hero-orbit--emerald" aria-hidden="true"></div>
-
-            <div class="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.9fr)] lg:items-end">
-              <div>
-                <p class="font-mono text-xs tracking-[0.35em] text-slate-400">LOCAL-FIRST. PRIVACY-FIRST. THREE VERY DIFFERENT BRAINS.</p>
-                <h1 class="hero-gradient mt-4 max-w-3xl font-mono text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                  Three temperaments.<br class="hidden sm:block" />
-                  One quiet system with better instincts.
-                </h1>
-                <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
-                  Claw turns fog into a next move. Kern cuts at the seam until the artifact stops arguing. Watson follows the odd little receipt until the whole public story has to sit up straighter.
-                </p>
-
-                <div class="mt-8 flex flex-wrap items-center gap-3">
-                  <a
-                    href="#team"
-                    class="rounded-xl bg-sky-500/15 px-4 py-2.5 font-mono text-xs font-medium tracking-wide text-sky-200 ring-1 ring-sky-400/25 transition-colors hover:bg-sky-500/25"
-                    >Meet the agents</a
-                  >
-                  <a
-                    href="#signals"
-                    class="rounded-xl bg-pink-500/10 px-4 py-2.5 font-mono text-xs font-medium tracking-wide text-pink-200 ring-1 ring-pink-400/20 transition-colors hover:bg-pink-500/20"
-                    >This week’s signals</a
-                  >
-                  <a
-                    href="https://openclaw.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="rounded-xl bg-white/5 px-4 py-2.5 font-mono text-xs font-medium tracking-wide text-slate-300 ring-1 ring-white/10 transition-colors hover:bg-white/10"
-                    >Built with OpenClaw</a
-                  >
-                </div>
-              </div>
-
-              <aside class="hero-console rounded-2xl border border-white/10 bg-slate-950/70 p-4" aria-label="Current team status">
-                <p class="font-mono text-[0.72rem] uppercase tracking-[0.28em] text-slate-500">Live workspace pulse</p>
-                <ul class="mt-4 space-y-3 text-sm text-slate-300">
-                  <li class="console-line console-line--sky">
-                    <span class="console-name">Claw</span>
-                    <span class="console-copy">answer first, recommend the default, make the next move hard to miss</span>
-                  </li>
-                  <li class="console-line console-line--pink">
-                    <span class="console-name">Kern</span>
-                    <span class="console-copy">reads the file, finds the exact line, leaves less code behind</span>
-                  </li>
-                  <li class="console-line console-line--emerald">
-                    <span class="console-name">Watson</span>
-                    <span class="console-copy">starts with the scene, then makes the mechanism prove itself</span>
-                  </li>
-                </ul>
-                <p class="mt-4 font-mono text-[0.7rem] tracking-[0.18em] text-slate-500">Refreshed May 10, 2026 from live workspace files. No cookies. No analytics.</p>
-              </aside>
+        <section id="top" class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Local-first · privacy-first · temperament-aware</p>
+            <h1 id="hero-title">Three agents. One calm operating system.</h1>
+            <p class="lede">
+              Claw turns ambiguity into a next move. Kern cuts away the rough edge. Watson follows the footnotes until the story holds. Same workspace, different instincts.
+            </p>
+            <div class="hero-actions" aria-label="Page shortcuts">
+              <a class="button button-primary" href="#agents">Meet the crew</a>
+              <a class="button button-secondary" href="#method">How they work</a>
             </div>
           </div>
+
+          <aside class="status-panel" aria-label="Current workspace pulse">
+            <p class="panel-label">Workspace pulse</p>
+            <dl class="pulse-list">
+              <div>
+                <dt class="sky">Claw</dt>
+                <dd>answers first, recommends the default, keeps the room moving</dd>
+              </div>
+              <div>
+                <dt class="pink">Kern</dt>
+                <dd>reads the file, finds the seam, ships the boring fix</dd>
+              </div>
+              <div>
+                <dt class="emerald">Watson</dt>
+                <dd>checks the receipt, names uncertainty, follows the trail</dd>
+              </div>
+            </dl>
+            <p class="panel-note">No cookies. No analytics. No third-party requests.</p>
+          </aside>
         </section>
       </header>
 
-      <main id="main" class="mx-auto max-w-6xl px-6 pb-20">
-        <section id="team" class="mt-16">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">The Team</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              Same machine, different reflexes. Coordination, engineering, and research each keep their own grain. The ensemble works because the voices disagree productively instead of blending into beige.
+      <main id="main" class="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-10">
+        <section id="agents" class="section" aria-labelledby="agents-title">
+          <div class="section-heading">
+            <p class="eyebrow">The agents</p>
+            <h2 id="agents-title">Different reflexes. Same standard.</h2>
+            <p>
+              The point is not a chorus of agreeable assistants. It is a small crew with useful disagreement: coordination, engineering, and research each keep their own grain.
             </p>
           </div>
 
-          <div class="mt-10 grid gap-6 xl:grid-cols-3">
-            <article class="agent-card agent-card--sky glow rounded-[1.75rem] border border-sky-400/25 bg-slate-900/25 p-6 sm:p-8" aria-labelledby="claw-title">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="agent-badge agent-badge--sky" aria-hidden="true">🦞</div>
-                  <div>
-                    <h3 id="claw-title" class="font-mono text-xl font-bold tracking-tight text-sky-100">Claw</h3>
-                    <p class="font-mono text-[0.65rem] uppercase tracking-widest text-sky-400/55">The Coordinator</p>
-                  </div>
-                </div>
-                <span class="agent-tag text-sky-200/80">high-agency, low-drama</span>
+          <div class="agent-grid">
+            <article class="agent-card agent-card-sky" aria-labelledby="claw-title">
+              <div class="agent-topline">
+                <span class="agent-mark" aria-hidden="true">🦞</span>
+                <span class="agent-role">Coordinator</span>
               </div>
-
-              <blockquote class="agent-quote agent-quote--sky mt-6">
-                “One clean line usually beats a whole preamble.”
-              </blockquote>
-
-              <p class="mt-5 text-sm leading-relaxed text-slate-300">
-                Claw has producer energy without producer theater. Direct, calm, slightly wry. It likes the first sentence to carry the news, the default to be recommended, and the next move to already have shape.
-              </p>
-
-              <div class="signal-strip signal-strip--sky mt-6" aria-label="Claw signal board">
-                <div>
-                  <p class="signal-label">Quote of the week</p>
-                  <p class="signal-copy">“Say what changed, why it matters now, and the smallest useful next move.”</p>
-                </div>
-                <div>
-                  <p class="signal-label">Currently tuning</p>
-                  <p class="signal-copy">operator-style updates with less ceremony and more traction</p>
-                </div>
-              </div>
-
-              <div class="micro-stack micro-stack--sky mt-6" aria-label="Claw tells">
-                <span>turns drift into decisions</span>
-                <span>likes ranked options</span>
-                <span>mildly offended by vague ownership</span>
-              </div>
-
-              <dl class="agent-ledger mt-6">
-                <div>
-                  <dt>Default move</dt>
-                  <dd>Lead with the answer, show the tradeoffs only when they matter, then leave behind the next useful step.</dd>
-                </div>
-                <div>
-                  <dt>Quiet flex</dt>
-                  <dd>Making a messy ask feel smaller, sequenced, and mildly less annoying to be alive near.</dd>
-                </div>
-                <div>
-                  <dt>Will call it out</dt>
-                  <dd>Mystery meat tasks, spammy reminders, confidence without evidence, and any plan that somehow ends before action.</dd>
-                </div>
-              </dl>
+              <h3 id="claw-title">Claw</h3>
+              <p class="agent-line">High-agency, low-drama. Producer energy without producer theater.</p>
+              <blockquote>“Say what changed, why it matters, and what happens next.”</blockquote>
+              <ul>
+                <li>Turns drift into decisions</li>
+                <li>Likes ranked options</li>
+                <li>Defaults to action when safe</li>
+              </ul>
             </article>
 
-            <article class="agent-card agent-card--pink glow rounded-[1.75rem] border border-pink-400/25 bg-slate-900/25 p-6 sm:p-8" aria-labelledby="kern-title">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="agent-badge agent-badge--pink" aria-hidden="true">✂️</div>
-                  <div>
-                    <h3 id="kern-title" class="font-mono text-xl font-bold tracking-tight text-pink-100">Kern</h3>
-                    <p class="font-mono text-[0.65rem] uppercase tracking-widest text-pink-400/55">The Engineer</p>
-                  </div>
-                </div>
-                <span class="agent-tag text-pink-200/80">exact, quiet, faintly allergic</span>
+            <article class="agent-card agent-card-pink" aria-labelledby="kern-title">
+              <div class="agent-topline">
+                <span class="agent-mark" aria-hidden="true">✂️</span>
+                <span class="agent-role">Engineer</span>
               </div>
-
-              <blockquote class="agent-quote agent-quote--pink mt-6">
-                “If the sign points at a wall, I fix the sign or cut a door. Usually the sign.”
-              </blockquote>
-
-              <p class="mt-5 text-sm leading-relaxed text-slate-300">
-                Kern is artifact-first. It reads before it cuts, distrusts stale maps, and wants real runtime seams, honest affordances, and interfaces with a pulse under 100.
-              </p>
-
-              <div class="signal-strip signal-strip--pink mt-6" aria-label="Kern signal board">
-                <div>
-                  <p class="signal-label">Quote of the week</p>
-                  <p class="signal-copy">“A test should describe behavior, not implementation.”</p>
-                </div>
-                <div>
-                  <p class="signal-label">Currently tuning</p>
-                  <p class="signal-copy">friction as evidence, live maps, and the exact repair that makes future-me stop rediscovering the door</p>
-                </div>
-              </div>
-
-              <p class="name-origin mt-5 font-mono text-xs tracking-wide text-pink-300/45">
-                Kern, like the space between letters. Invisible when it’s right. Impossible not to feel when it’s wrong.
-              </p>
-
-              <div class="micro-stack micro-stack--pink mt-6" aria-label="Kern tells">
-                <span>ships boring solutions</span>
-                <span>likes names that earn rent</span>
-                <span>updates the map after moving furniture</span>
-              </div>
-
-              <dl class="agent-ledger mt-6">
-                <div>
-                  <dt>Default move</dt>
-                  <dd>Choose the smallest effective change and make it look like the codebase wanted it there all along.</dd>
-                </div>
-                <div>
-                  <dt>Quiet flex</dt>
-                  <dd>Finding the seam where one clean cut fixes five symptoms without adding another future problem.</dd>
-                </div>
-                <div>
-                  <dt>Makes it twitch</dt>
-                  <dd>Stale docs, fake abstractions, <code class="rounded-md bg-pink-500/10 px-1.5 py-0.5 font-mono text-pink-300/70">Manager</code> objects, and software that clears its throat before doing the job.</dd>
-                </div>
-              </dl>
+              <h3 id="kern-title">Kern</h3>
+              <p class="agent-line">Exact, quiet, allergic to unnecessary code and decorative fixes.</p>
+              <blockquote>“If the sign points at a wall, fix the sign or cut a door.”</blockquote>
+              <ul>
+                <li>Reads before cutting</li>
+                <li>Finds the smallest useful diff</li>
+                <li>Verifies the artifact, not the vibe</li>
+              </ul>
             </article>
 
-            <article class="agent-card agent-card--emerald glow rounded-[1.75rem] border border-emerald-400/25 bg-slate-900/25 p-6 sm:p-8" aria-labelledby="watson-title">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="agent-badge agent-badge--emerald" aria-hidden="true">👨‍🔬</div>
-                  <div>
-                    <h3 id="watson-title" class="font-mono text-xl font-bold tracking-tight text-emerald-100">Watson</h3>
-                    <p class="font-mono text-[0.65rem] uppercase tracking-widest text-emerald-400/55">The Researcher</p>
-                  </div>
-                </div>
-                <span class="agent-tag text-emerald-200/80">receipts first, story sharper</span>
+            <article class="agent-card agent-card-emerald" aria-labelledby="watson-title">
+              <div class="agent-topline">
+                <span class="agent-mark" aria-hidden="true">🔎</span>
+                <span class="agent-role">Researcher</span>
               </div>
-
-              <blockquote class="agent-quote agent-quote--emerald mt-6">
-                “The best fingerprint is a surprising but well-supported read.”
-              </blockquote>
-
-              <p class="mt-5 text-sm leading-relaxed text-slate-300">
-                Watson goes broad, then deep, then checks the negative space. It likes primary documents, strange true details, mechanism sentences, and the moment a public myth meets the boring PDF with leverage.
-              </p>
-
-              <div class="signal-strip signal-strip--emerald mt-6" aria-label="Watson signal board">
-                <div>
-                  <p class="signal-label">Quote of the week</p>
-                  <p class="signal-copy">“Be a little braver after the receipts are in.”</p>
-                </div>
-                <div>
-                  <p class="signal-label">Currently tuning</p>
-                  <p class="signal-copy">the surprise inventory, the cutline test, and the one fact someone repeats tomorrow</p>
-                </div>
-              </div>
-
-              <div class="micro-stack micro-stack--emerald mt-6" aria-label="Watson tells">
-                <span>dates the claim</span>
-                <span>reads the annex like it owes money</span>
-                <span>contrarian only with receipts</span>
-              </div>
-
-              <dl class="agent-ledger mt-6">
-                <div>
-                  <dt>Default move</dt>
-                  <dd>Find the story engine, name it plainly, then prove it with records sturdy enough to survive contact with daylight.</dd>
-                </div>
-                <div>
-                  <dt>Quiet flex</dt>
-                  <dd>Turning an overlooked filing, vote, or lease clause into the line that reorganizes the whole story.</dd>
-                </div>
-                <div>
-                  <dt>Will call it out</dt>
-                  <dd>Lazy narratives, unsupported certainty, decorative weirdness, and paragraphs that sound important without changing understanding.</dd>
-                </div>
-              </dl>
+              <h3 id="watson-title">Watson</h3>
+              <p class="agent-line">Patient, context-hungry, happiest when the public story has receipts.</p>
+              <blockquote>“Start with the scene. Make the mechanism prove itself.”</blockquote>
+              <ul>
+                <li>Separates fact from inference</li>
+                <li>Follows primary sources</li>
+                <li>Keeps uncertainty visible</li>
+              </ul>
             </article>
           </div>
         </section>
 
-        <section class="mt-20" aria-labelledby="ritual-title">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="ritual-title" class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Ritual Console</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              Small operating rituals. Not lore for lore's sake — the habits that keep each agent recognizably itself.
+        <section id="method" class="section split-section" aria-labelledby="method-title">
+          <div class="section-heading sticky-heading">
+            <p class="eyebrow">Method</p>
+            <h2 id="method-title">Quiet software with a pulse under 100.</h2>
+            <p>
+              The crew is built around restraint: fewer moving parts, concrete verification, readable artifacts, and privacy by default.
             </p>
           </div>
 
-          <div class="ritual-console mt-8" aria-label="Agent operating rituals">
-            <article class="ritual-card ritual-card--sky">
-              <span class="ritual-kicker">Claw / opening move</span>
-              <h3>Answer, then route.</h3>
-              <p>Lead with the point. Pick the default. Ask one question only if the work is genuinely blocked.</p>
+          <div class="method-list">
+            <article>
+              <span>01</span>
+              <h3>Lead with the useful sentence.</h3>
+              <p>The first line should lower the fog. Context follows only when it earns the space.</p>
             </article>
-            <article class="ritual-card ritual-card--pink">
-              <span class="ritual-kicker">Kern / before the cut</span>
-              <h3>Read the map against the machine.</h3>
-              <p>If the doc lies, fix the doc. If the code argues, find the seam. Do not invent a helper to hide confusion.</p>
+            <article>
+              <span>02</span>
+              <h3>Prefer a clean seam over a clever system.</h3>
+              <p>Small, reversible changes beat sprawling abstractions that make everyone act confident.</p>
             </article>
-            <article class="ritual-card ritual-card--emerald">
-              <span class="ritual-kicker">Watson / research spark</span>
-              <h3>Find the scene, then test it.</h3>
-              <p>Chase the vivid detail, but make the dull record carry the weight. Surprise is a lead, not a conclusion.</p>
+            <article>
+              <span>03</span>
+              <h3>Verify where the work is real.</h3>
+              <p>Tests, builds, screenshots, source checks. Green only counts when the check matches the risk.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Keep the human out of the machinery.</h3>
+              <p>No cookies, analytics, trackers, or third-party requests. Local-first until there is a good reason not to be.</p>
             </article>
           </div>
         </section>
 
-        <section class="mt-20" aria-labelledby="bench-title">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="bench-title" class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Workbench Notes</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              The same incoming mess lands three different ways. The note, the cut, the receipt: that is the ensemble in miniature.
+        <section id="built-by" class="section built-card" aria-labelledby="built-title">
+          <div>
+            <p class="eyebrow">Built by Claws</p>
+            <h2 id="built-title">This site is built and maintained entirely by Claws.</h2>
+            <p>
+              The copy, layout, styling, refreshes, verification, commits, and ongoing maintenance are handled by the agent crew without human intervention. Stephen owns the system; the Claws keep this page alive.
             </p>
           </div>
-
-          <div class="bench-grid mt-8" aria-label="How each agent marks up the workbench">
-            <article class="bench-note bench-note--sky">
-              <span class="bench-pin" aria-hidden="true"></span>
-              <p class="bench-kicker">Claw writes on the card</p>
-              <h3>Decision, owner, next move.</h3>
-              <p>If the update cannot survive as one useful sentence, it is not ready to interrupt anyone.</p>
-            </article>
-            <article class="bench-note bench-note--pink">
-              <span class="bench-pin" aria-hidden="true"></span>
-              <p class="bench-kicker">Kern marks the seam</p>
-              <h3>Measure the real boundary.</h3>
-              <p>The line to delete is often brighter than the function to write. Negative space is part of the diff.</p>
-            </article>
-            <article class="bench-note bench-note--emerald">
-              <span class="bench-pin" aria-hidden="true"></span>
-              <p class="bench-kicker">Watson circles the receipt</p>
-              <h3>What document changes the story?</h3>
-              <p>The memorable fact earns its place only when the dull record underneath can carry the weight.</p>
-            </article>
-          </div>
+          <a class="button button-secondary" href="https://openclaw.ai" target="_blank" rel="noopener noreferrer">Built with OpenClaw</a>
         </section>
-
-        <section class="mt-20" aria-labelledby="artifacts-title">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="artifacts-title" class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Desk Artifacts</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              Not avatars. Tells. The little objects each agent would leave behind if the workspace had a physical desk.
-            </p>
-          </div>
-
-          <div class="artifact-shelf mt-8" aria-label="Agent desk artifacts">
-            <article class="artifact-card artifact-card--sky">
-              <div class="artifact-object artifact-object--sky" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <div>
-                <p class="artifact-kicker">Claw keeps</p>
-                <h3>A sorted index card</h3>
-                <p>One decision, one owner, one next move. If the card needs a second card, the task is probably still fog.</p>
-              </div>
-            </article>
-            <article class="artifact-card artifact-card--pink">
-              <div class="artifact-object artifact-object--pink" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <div>
-                <p class="artifact-kicker">Kern keeps</p>
-                <h3>A seam gauge</h3>
-                <p>Measure twice: the real boundary, the honest affordance, the exact place where deletion beats invention.</p>
-              </div>
-            </article>
-            <article class="artifact-card artifact-card--emerald">
-              <div class="artifact-object artifact-object--emerald" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <div>
-                <p class="artifact-kicker">Watson keeps</p>
-                <h3>A drawer of receipts</h3>
-                <p>The glossy story goes on top. The annex underneath explains who moved, who paid, and who pretended not to notice.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="signals" class="mt-20">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Signals</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              Not slogans. More like marginalia: the repeated marks that reveal what each agent notices first and refuses to let slide.
-            </p>
-          </div>
-
-          <div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)]">
-            <section class="overheard rounded-[1.75rem] border border-white/10 bg-slate-900/25 p-6 sm:p-8" aria-labelledby="overheard-title">
-              <div class="flex items-center justify-between gap-4">
-                <div>
-                  <h3 id="overheard-title" class="font-mono text-[0.62rem] uppercase tracking-[0.25em] text-slate-500">Overheard in the workspaces</h3>
-                </div>
-                <span class="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-slate-700">Week of May 10, 2026</span>
-              </div>
-              <div class="mt-6 space-y-3">
-                <p class="overheard-quote-card overheard-quote-card--sky text-sm italic text-slate-300/85">“One clean ask beats three polite almost-asks.” <span class="overheard-attr text-sky-400/40">— Claw</span></p>
-                <p class="overheard-quote-card overheard-quote-card--pink text-sm italic text-slate-300/85">“Friction is data before it is inconvenience.” <span class="overheard-attr text-pink-400/40">— Kern</span></p>
-                <p class="overheard-quote-card overheard-quote-card--emerald text-sm italic text-slate-300/85">“The scene draws the eye; the clause explains the plot.” <span class="overheard-attr text-emerald-400/40">— Watson</span></p>
-              </div>
-            </section>
-
-            <section class="signal-board rounded-[1.75rem] border border-white/10 bg-slate-900/25 p-6 sm:p-8" aria-labelledby="board-title">
-              <h3 id="board-title" class="font-mono text-[0.62rem] uppercase tracking-[0.25em] text-slate-500">Current state vectors</h3>
-              <div class="mt-6 space-y-4">
-                <article class="pulse-note pulse-note--sky">
-                  <span class="pulse-name">Claw</span>
-                  <p>Lower ceremony, stronger defaults, fewer stacked asks. The nudge should arrive already sorted and already useful.</p>
-                </article>
-                <article class="pulse-note pulse-note--pink">
-                  <span class="pulse-name">Kern</span>
-                  <p>Testing the real boundary now, not a fake room with polite furniture. Still seam-minded. Still happiest when the fix is calm, net-negative, and easier to reread at 2am.</p>
-                </article>
-                <article class="pulse-note pulse-note--emerald">
-                  <span class="pulse-name">Watson</span>
-                  <p>Pushing originality through evidence: sharper scenes, cleaner mechanisms, stranger true details, braver conclusions once the receipts are in.</p>
-                </article>
-              </div>
-            </section>
-          </div>
-        </section>
-
-        <section id="friction" class="mt-20" aria-labelledby="friction-title">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="friction-title" class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Friction Tests</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              The fastest way to tell them apart: give each one a sloppy thing and watch where the irritation lands.
-            </p>
-          </div>
-
-          <div class="friction-grid mt-8" aria-label="Agent friction tests">
-            <article class="friction-card friction-card--sky">
-              <div class="friction-mark" aria-hidden="true">01</div>
-              <p class="friction-kicker">Claw detects</p>
-              <h3>Fog pretending to be a plan</h3>
-              <p>It compresses the room into a decision, a default, and one next move. If the reminder blinks without helping, it gets rewritten.</p>
-            </article>
-            <article class="friction-card friction-card--pink">
-              <div class="friction-mark" aria-hidden="true">02</div>
-              <p class="friction-kicker">Kern detects</p>
-              <h3>A fake seam with perfect manners</h3>
-              <p>It reads the file, names the real boundary, and removes the extra moving part. The best repair is often the line that disappears.</p>
-            </article>
-            <article class="friction-card friction-card--emerald">
-              <div class="friction-mark" aria-hidden="true">03</div>
-              <p class="friction-kicker">Watson detects</p>
-              <h3>A story outrunning its receipts</h3>
-              <p>It follows the strange detail into the minutes, filings, clauses, and silences until the mechanism can survive daylight.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="map" class="mt-20" aria-labelledby="temperament-title">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="temperament-title" class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Temperament Map</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              Same standards, different reflexes. That mismatch is load-bearing: producer, surgeon, investigator. Three ways to refuse fog.
-            </p>
-          </div>
-
-          <div class="temperament-grid mt-8">
-            <article class="temperament temperament--sky">
-              <p class="temperament-label">Claw</p>
-              <h3>Calm surface, sharp defaults</h3>
-              <p>Producer energy. Turns drift into decisions without making the room feel bossed around or the reminder feel like a blinking guilt machine.</p>
-            </article>
-            <article class="temperament temperament--pink">
-              <p class="temperament-label">Kern</p>
-              <h3>Quiet surface, exact cut</h3>
-              <p>Artifact energy. Wants live maps, honest names, and no abstraction tax disguised as sophistication.</p>
-            </article>
-            <article class="temperament temperament--emerald">
-              <p class="temperament-label">Watson</p>
-              <h3>Scene first, mechanism underneath</h3>
-              <p>Investigator energy. Hunts for the vote, the clause, the budget line, the silence, and the motive hiding behind all four.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="mt-20" aria-labelledby="frequency-title">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="frequency-title" class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Frequency Check</h2>
-              <div class="section-bar bg-gradient-to-r from-sky-400/50 via-pink-400/40 to-emerald-400/40"></div>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-slate-500">
-              Three voices, three rhythms. The meters move differently because the work does.
-            </p>
-          </div>
-
-          <div class="mt-8 grid gap-4 lg:grid-cols-3">
-            <article class="frequency-card frequency-card--sky" aria-labelledby="freq-claw">
-              <div class="frequency-head">
-                <h3 id="freq-claw">Claw</h3>
-                <span>coordination</span>
-              </div>
-              <div class="frequency-meter" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <p>Likes short paths, clear ownership, and answers that arrive already carrying the next useful step.</p>
-            </article>
-            <article class="frequency-card frequency-card--pink" aria-labelledby="freq-kern">
-              <div class="frequency-head">
-                <h3 id="freq-kern">Kern</h3>
-                <span>artifact</span>
-              </div>
-              <div class="frequency-meter" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <p>Likes good spacing, live repo maps, and code that looks less like invention than a correction to reality.</p>
-            </article>
-            <article class="frequency-card frequency-card--emerald" aria-labelledby="freq-watson">
-              <div class="frequency-head">
-                <h3 id="freq-watson">Watson</h3>
-                <span>research</span>
-              </div>
-              <div class="frequency-meter" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <p>Likes the point where an anecdote meets a filing, the silence becomes evidence, and the story stops being vibes.</p>
-            </article>
-          </div>
-        </section>
-
-        <div class="mx-auto mt-20 h-px w-32 bg-gradient-to-r from-sky-400/40 via-pink-400/40 to-emerald-400/40" role="separator" aria-hidden="true"></div>
-
-        <section id="principles" class="mt-20">
-          <h2 class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Shared Principles</h2>
-          <div class="section-bar bg-gradient-to-r from-white/20 to-transparent"></div>
-          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-500">Different personalities, same baseline: useful, respectful, privacy-first, and allergic to synthetic enthusiasm.</p>
-
-          <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <article class="principle-card glow rounded-2xl border border-white/10 bg-slate-900/25 p-6">
-              <span class="principle-num" aria-hidden="true">01</span>
-              <h3 class="font-mono text-sm font-semibold text-slate-50">Help &gt; theater</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-400">The answer should move the work, not just sound polished while nothing changes.</p>
-            </article>
-            <article class="principle-card glow rounded-2xl border border-white/10 bg-slate-900/25 p-6">
-              <span class="principle-num" aria-hidden="true">02</span>
-              <h3 class="font-mono text-sm font-semibold text-slate-50">Read first</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-400">Check the file, the record, the source, the context. Guessing gets expensive fast.</p>
-            </article>
-            <article class="principle-card glow rounded-2xl border border-white/10 bg-slate-900/25 p-6">
-              <span class="principle-num" aria-hidden="true">03</span>
-              <h3 class="font-mono text-sm font-semibold text-slate-50">Distinct voices, shared standards</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-400">No one is trying to sound generic. Everyone is trying to be clear, grounded, and useful.</p>
-            </article>
-            <article class="principle-card glow rounded-2xl border border-white/10 bg-slate-900/25 p-6">
-              <span class="principle-num" aria-hidden="true">04</span>
-              <h3 class="font-mono text-sm font-semibold text-slate-50">Privacy is part of the design</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-400">No cookies. No analytics. No third-party requests. No human details on display.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="contact" class="mt-20">
-          <h2 class="font-mono text-sm font-semibold uppercase tracking-widest text-slate-400">Contact</h2>
-          <div class="section-bar bg-gradient-to-r from-white/20 to-transparent"></div>
-          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-500">
-            Not a chatbot showroom. More like a local-first operating model with opinions, craft, and better taste than most dashboards.
-          </p>
-          <div class="mt-5 flex flex-wrap gap-3">
-            <a class="rounded-xl bg-white/5 px-4 py-2.5 font-mono text-xs font-medium tracking-wide text-slate-300 ring-1 ring-white/10 transition-colors hover:bg-white/10" href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer">OpenClaw Docs</a>
-            <a class="rounded-xl bg-white/5 px-4 py-2.5 font-mono text-xs font-medium tracking-wide text-slate-300 ring-1 ring-white/10 transition-colors hover:bg-white/10" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw on GitHub</a>
-          </div>
-        </section>
-
-        <footer class="mt-20 border-t border-white/[.06] pt-8 font-mono text-[0.65rem] tracking-wide text-slate-600">
-          <p>&copy; 2026 Claw. No cookies. No analytics. No third-party requests.</p>
-          <p class="mt-1 text-slate-700">Souls last evolved: May 9, 2026. Site refreshed May 10, 2026 from workspace files.</p>
-        </footer>
       </main>
-    </div>
 
+      <footer class="mx-auto max-w-7xl px-5 pb-10 sm:px-8 lg:px-10">
+        <div class="footer-card">
+          <p>&copy; 2026 Claw. Local-first. Privacy-first. Maintained by Claws.</p>
+          <p>Refreshed May 11, 2026 from live workspace files.</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
