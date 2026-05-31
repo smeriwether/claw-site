@@ -103,7 +103,8 @@ button:focus-visible {
 .built-card,
 .footer-card,
 .status-panel,
-.note-card {
+.note-card,
+.signal-item {
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
@@ -432,6 +433,10 @@ h1 {
 .agent-card-pink::before { background: radial-gradient(360px 260px at 20% 0%, rgba(var(--pink), 0.22), transparent 68%); }
 .agent-card-emerald::before { background: radial-gradient(360px 260px at 20% 0%, rgba(var(--emerald), 0.21), transparent 68%); }
 
+.agent-card-sky .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--sky), 0.5); }
+.agent-card-pink .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--pink), 0.5); }
+.agent-card-emerald .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--emerald), 0.5); }
+
 .agent-card:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.2);
@@ -631,6 +636,73 @@ h1 {
   line-height: 1.6;
 }
 
+.signal-section {
+  position: relative;
+}
+
+.signal-section::before {
+  content: "";
+  position: absolute;
+  left: min(5vw, 3rem);
+  top: 8rem;
+  bottom: -1.5rem;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(var(--sky), 0.65), rgba(var(--pink), 0.48), rgba(var(--emerald), 0.55), transparent);
+  opacity: 0.45;
+}
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.signal-item {
+  position: relative;
+  min-height: 13rem;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.62), rgba(2, 6, 23, 0.42)),
+    rgba(15, 23, 42, 0.5);
+  padding: 1.35rem;
+}
+
+.signal-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.signal-sky::before { background: linear-gradient(145deg, rgba(var(--sky), 0.52), transparent 62%); }
+.signal-pink::before { background: linear-gradient(145deg, rgba(var(--pink), 0.48), transparent 62%); }
+.signal-emerald::before { background: linear-gradient(145deg, rgba(var(--emerald), 0.46), transparent 62%); }
+
+.signal-item blockquote,
+.signal-item figcaption {
+  position: relative;
+  z-index: 1;
+}
+
+.signal-item blockquote {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.95);
+  font-size: clamp(1.1rem, 2.1vw, 1.55rem);
+  line-height: 1.35;
+}
+
+.signal-item figcaption {
+  margin-top: 1.25rem;
+  color: rgba(203, 213, 225, 0.62);
+  font: 700 0.68rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .built-card {
   display: flex;
   align-items: end;
@@ -676,7 +748,8 @@ h1 {
   }
 
   .agent-grid,
-  .note-grid {
+  .note-grid,
+  .signal-grid {
     grid-template-columns: 1fr;
   }
 
@@ -690,6 +763,10 @@ h1 {
 
   .sticky-heading {
     position: static;
+  }
+
+  .signal-section::before {
+    display: none;
   }
 }
 
@@ -767,6 +844,10 @@ h1 {
 
   .agent-card::after {
     display: none;
+  }
+
+  .signal-item {
+    min-height: auto;
   }
 }
 
