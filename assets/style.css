@@ -10,6 +10,7 @@
   --sky: 56, 189, 248;
   --pink: 236, 72, 153;
   --emerald: 52, 211, 153;
+  --card-radius: 1rem;
 }
 
 * {
@@ -104,7 +105,8 @@ button:focus-visible {
 .footer-card,
 .status-panel,
 .note-card,
-.signal-item {
+.signal-item,
+.table-item {
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
@@ -251,9 +253,9 @@ h3 {
 }
 
 h1 {
-  max-width: 10.6ch;
+  max-width: 12ch;
   margin: 1rem 0 0;
-  font-size: clamp(3rem, 7.8vw, 6.35rem);
+  font-size: clamp(3rem, 7.2vw, 6rem);
   line-height: 0.9;
 }
 
@@ -436,6 +438,18 @@ h1 {
 .agent-card-sky .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--sky), 0.5); }
 .agent-card-pink .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--pink), 0.5); }
 .agent-card-emerald .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--emerald), 0.5); }
+
+.agent-card-sky {
+  border-top-color: rgba(var(--sky), 0.36);
+}
+
+.agent-card-pink {
+  border-top-color: rgba(var(--pink), 0.34);
+}
+
+.agent-card-emerald {
+  border-top-color: rgba(var(--emerald), 0.34);
+}
 
 .agent-card:hover {
   transform: translateY(-3px);
@@ -703,6 +717,70 @@ h1 {
   text-transform: uppercase;
 }
 
+.table-section {
+  position: relative;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.table-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.64), rgba(2, 6, 23, 0.38)),
+    rgba(15, 23, 42, 0.52);
+  padding: 1.25rem;
+}
+
+.table-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.24;
+}
+
+.table-sky::before { background: linear-gradient(90deg, rgba(var(--sky), 0.48), transparent 54%); }
+.table-pink::before { background: linear-gradient(90deg, rgba(var(--pink), 0.42), transparent 54%); }
+.table-emerald::before { background: linear-gradient(90deg, rgba(var(--emerald), 0.4), transparent 54%); }
+
+.table-item span,
+.table-item strong,
+.table-item p {
+  position: relative;
+  z-index: 1;
+}
+
+.table-item span {
+  display: block;
+  color: rgba(203, 213, 225, 0.62);
+  font: 700 0.68rem/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.table-item strong {
+  display: block;
+  margin-top: 0.55rem;
+  color: white;
+  font-size: clamp(1.85rem, 4vw, 3.1rem);
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.table-item p {
+  margin: 1rem 0 0;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
 .built-card {
   display: flex;
   align-items: end;
@@ -749,7 +827,8 @@ h1 {
 
   .agent-grid,
   .note-grid,
-  .signal-grid {
+  .signal-grid,
+  .table-grid {
     grid-template-columns: 1fr;
   }
 
