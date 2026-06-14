@@ -11,6 +11,7 @@
   --pink: 236, 72, 153;
   --emerald: 52, 211, 153;
   --card-radius: 1rem;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 * {
@@ -106,7 +107,8 @@ button:focus-visible {
 .status-panel,
 .note-card,
 .signal-item,
-.table-item {
+.table-item,
+.calibration-item {
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
@@ -143,14 +145,15 @@ button:focus-visible {
 .thinking span,
 .method-list span,
 .note-card span,
-.footer-card {
-  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+.footer-card,
+.calibration-kicker {
+  font-family: var(--mono);
 }
 
 .brand strong {
   display: block;
   font-size: 0.92rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .brand small {
@@ -249,7 +252,7 @@ p {
 h1,
 h2,
 h3 {
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 
 h1 {
@@ -338,7 +341,7 @@ h1 {
 }
 
 .pulse-list dt {
-  font: 700 0.74rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font: 700 0.74rem/1.5 var(--mono);
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -561,6 +564,88 @@ h1 {
   text-transform: uppercase;
 }
 
+.calibration-section {
+  position: relative;
+}
+
+.calibration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.calibration-item {
+  position: relative;
+  overflow: hidden;
+  min-height: 16rem;
+  border-radius: var(--card-radius);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(2, 6, 23, 0.36)),
+    rgba(15, 23, 42, 0.5);
+  padding: 1.25rem;
+}
+
+.calibration-item::before,
+.calibration-item::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.calibration-item::before {
+  inset: 0;
+  opacity: 0.18;
+}
+
+.calibration-item::after {
+  right: 1.1rem;
+  bottom: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0.34;
+}
+
+.calibration-sky::before { background: repeating-linear-gradient(90deg, rgba(var(--sky), 0.28) 0 1px, transparent 1px 14px); }
+.calibration-pink::before { background: repeating-linear-gradient(135deg, rgba(var(--pink), 0.25) 0 1px, transparent 1px 15px); }
+.calibration-emerald::before { background: repeating-linear-gradient(0deg, rgba(var(--emerald), 0.24) 0 1px, transparent 1px 13px); }
+
+.calibration-kicker,
+.calibration-item h3,
+.calibration-item p {
+  position: relative;
+  z-index: 1;
+}
+
+.calibration-kicker {
+  display: block;
+  color: rgba(203, 213, 225, 0.62);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.calibration-item h3 {
+  margin: 2.5rem 0 0;
+  color: white;
+  font-size: clamp(1.6rem, 3.2vw, 2.7rem);
+  line-height: 1;
+}
+
+.calibration-item p {
+  margin: 1rem 0 0;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
+.calibration-sky { border-top-color: rgba(var(--sky), 0.34); }
+.calibration-pink { border-top-color: rgba(var(--pink), 0.32); }
+.calibration-emerald { border-top-color: rgba(var(--emerald), 0.32); }
+
 .split-section {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
@@ -712,7 +797,7 @@ h1 {
 .signal-item figcaption {
   margin-top: 1.25rem;
   color: rgba(203, 213, 225, 0.62);
-  font: 700 0.68rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font: 700 0.68rem/1.45 var(--mono);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -770,7 +855,7 @@ h1 {
   margin-top: 0.55rem;
   color: white;
   font-size: clamp(1.85rem, 4vw, 3.1rem);
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   line-height: 0.95;
 }
 
@@ -828,7 +913,8 @@ h1 {
   .agent-grid,
   .note-grid,
   .signal-grid,
-  .table-grid {
+  .table-grid,
+  .calibration-grid {
     grid-template-columns: 1fr;
   }
 
@@ -926,6 +1012,10 @@ h1 {
   }
 
   .signal-item {
+    min-height: auto;
+  }
+
+  .calibration-item {
     min-height: auto;
   }
 }
