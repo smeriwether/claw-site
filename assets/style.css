@@ -108,7 +108,8 @@ button:focus-visible {
 .note-card,
 .signal-item,
 .table-item,
-.calibration-item {
+.calibration-item,
+.bench-note {
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
@@ -237,6 +238,7 @@ button:focus-visible {
   color: rgba(186, 230, 253, 0.86);
   font-size: 0.73rem;
   letter-spacing: 0.22em;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -646,6 +648,121 @@ h1 {
 .calibration-pink { border-top-color: rgba(var(--pink), 0.32); }
 .calibration-emerald { border-top-color: rgba(var(--emerald), 0.32); }
 
+.bench-section {
+  position: relative;
+}
+
+.bench {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bench-note {
+  position: relative;
+  min-height: 19rem;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.64), rgba(2, 6, 23, 0.42)),
+    rgba(15, 23, 42, 0.54);
+  padding: 1.3rem;
+}
+
+.bench-note::before,
+.bench-note::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.bench-note::before {
+  inset: 0;
+  opacity: 0.2;
+}
+
+.bench-note::after {
+  right: 1rem;
+  bottom: 1rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  opacity: 0.3;
+}
+
+.bench-sky::before {
+  background:
+    linear-gradient(90deg, rgba(var(--sky), 0.22) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(var(--sky), 0.16) 1px, transparent 1px);
+  background-size: 1.1rem 1.1rem;
+}
+
+.bench-sky::after {
+  border: 1px solid rgba(var(--sky), 0.72);
+  box-shadow: inset 0 0 0 0.7rem rgba(var(--sky), 0.08);
+}
+
+.bench-pink::before {
+  background: linear-gradient(135deg, transparent 0 45%, rgba(var(--pink), 0.28) 45% 46%, transparent 46% 100%);
+  background-size: 1.2rem 1.2rem;
+}
+
+.bench-pink::after {
+  border-right: 1px solid rgba(var(--pink), 0.72);
+  border-bottom: 1px solid rgba(var(--pink), 0.72);
+  border-radius: 0;
+}
+
+.bench-emerald::before {
+  background: radial-gradient(circle at 0.2rem 0.2rem, rgba(var(--emerald), 0.42) 0 1px, transparent 1.5px);
+  background-size: 1rem 1rem;
+}
+
+.bench-emerald::after {
+  border: 1px solid rgba(var(--emerald), 0.65);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.bench-index,
+.bench-note h3,
+.bench-note p {
+  position: relative;
+  z-index: 1;
+}
+
+.bench-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.36);
+  color: rgba(248, 250, 252, 0.78);
+  font: 700 0.72rem/1 var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.bench-note h3 {
+  margin: 4.2rem 0 0;
+  color: white;
+  font-size: clamp(1.55rem, 3.2vw, 2.6rem);
+  line-height: 1;
+}
+
+.bench-note p {
+  margin: 1rem 0 0;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.bench-sky { border-top-color: rgba(var(--sky), 0.35); }
+.bench-pink { border-top-color: rgba(var(--pink), 0.34); }
+.bench-emerald { border-top-color: rgba(var(--emerald), 0.34); }
+
 .split-section {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
@@ -914,7 +1031,8 @@ h1 {
   .note-grid,
   .signal-grid,
   .table-grid,
-  .calibration-grid {
+  .calibration-grid,
+  .bench {
     grid-template-columns: 1fr;
   }
 
@@ -957,7 +1075,7 @@ h1 {
   }
 
   h1 {
-    max-width: 100%;
+    max-width: 9.5ch;
     font-size: clamp(2rem, 9.4vw, 2.45rem);
     line-height: 1.04;
     overflow-wrap: anywhere;
@@ -982,6 +1100,12 @@ h1 {
 
   .section {
     margin-top: 4rem;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    line-height: 1.7;
   }
 
   .section-heading h2,
@@ -1017,6 +1141,14 @@ h1 {
 
   .calibration-item {
     min-height: auto;
+  }
+
+  .bench-note {
+    min-height: auto;
+  }
+
+  .bench-note h3 {
+    margin-top: 2.6rem;
   }
 }
 
