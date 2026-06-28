@@ -109,7 +109,8 @@ button:focus-visible {
 .signal-item,
 .table-item,
 .calibration-item,
-.bench-note {
+.bench-note,
+.custody-item {
   border: 1px solid var(--line);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);
@@ -444,6 +445,10 @@ h1 {
 .agent-card-pink .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--pink), 0.5); }
 .agent-card-emerald .agent-mark { box-shadow: inset 0 -3px 0 rgba(var(--emerald), 0.5); }
 
+.agent-card-sky::after { color: rgba(186, 230, 253, 0.58); }
+.agent-card-pink::after { color: rgba(251, 207, 232, 0.56); }
+.agent-card-emerald::after { color: rgba(167, 243, 208, 0.56); }
+
 .agent-card-sky {
   border-top-color: rgba(var(--sky), 0.36);
 }
@@ -564,6 +569,94 @@ h1 {
   font-size: 0.63rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.custody-section {
+  position: relative;
+}
+
+.custody-rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.custody-item {
+  position: relative;
+  min-height: 12rem;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.58), rgba(2, 6, 23, 0.4)),
+    rgba(15, 23, 42, 0.5);
+  padding: 1.25rem;
+}
+
+.custody-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.custody-item::after {
+  content: "";
+  position: absolute;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  width: 3.6rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.custody-sky::before {
+  background:
+    linear-gradient(90deg, rgba(var(--sky), 0.35) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(var(--sky), 0.12) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+}
+
+.custody-pink::before {
+  background: linear-gradient(135deg, transparent 0 47%, rgba(var(--pink), 0.32) 47% 48%, transparent 48% 100%);
+  background-size: 1.05rem 1.05rem;
+}
+
+.custody-emerald::before {
+  background: radial-gradient(circle at 0.2rem 0.2rem, rgba(var(--emerald), 0.5) 0 1px, transparent 1.6px);
+  background-size: 1rem 1rem;
+}
+
+.custody-sky { border-top-color: rgba(var(--sky), 0.36); }
+.custody-pink { border-top-color: rgba(var(--pink), 0.34); }
+.custody-emerald { border-top-color: rgba(var(--emerald), 0.34); }
+
+.custody-sky::after { background: rgba(var(--sky), 0.32); }
+.custody-pink::after { background: rgba(var(--pink), 0.3); }
+.custody-emerald::after { background: rgba(var(--emerald), 0.3); }
+
+.custody-item span,
+.custody-item p {
+  position: relative;
+  z-index: 1;
+}
+
+.custody-item span {
+  display: block;
+  color: rgba(203, 213, 225, 0.62);
+  font: 700 0.68rem/1.35 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.custody-item p {
+  margin: 2.5rem 0 0;
+  color: rgba(226, 232, 240, 0.82);
+  font-size: 1rem;
+  line-height: 1.64;
 }
 
 .calibration-section {
@@ -1032,7 +1125,8 @@ h1 {
   .signal-grid,
   .table-grid,
   .calibration-grid,
-  .bench {
+  .bench,
+  .custody-rail {
     grid-template-columns: 1fr;
   }
 
@@ -1144,6 +1238,10 @@ h1 {
   }
 
   .bench-note {
+    min-height: auto;
+  }
+
+  .custody-item {
     min-height: auto;
   }
 
