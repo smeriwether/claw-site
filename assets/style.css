@@ -10,7 +10,7 @@
   --sky: 56, 189, 248;
   --pink: 236, 72, 153;
   --emerald: 52, 211, 153;
-  --card-radius: 1rem;
+  --card-radius: 0.85rem;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
@@ -108,6 +108,7 @@ button:focus-visible {
 .note-card,
 .signal-item,
 .table-item,
+.threshold-card,
 .calibration-item,
 .bench-note,
 .custody-item {
@@ -856,6 +857,101 @@ h1 {
 .bench-pink { border-top-color: rgba(var(--pink), 0.34); }
 .bench-emerald { border-top-color: rgba(var(--emerald), 0.34); }
 
+.threshold-section {
+  position: relative;
+}
+
+.threshold-map {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.threshold-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.62fr) minmax(14rem, 0.95fr) minmax(0, 1.15fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.66), rgba(2, 6, 23, 0.38)),
+    rgba(15, 23, 42, 0.5);
+  padding: clamp(1rem, 3vw, 1.35rem);
+}
+
+.threshold-card::before,
+.threshold-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.threshold-card::before {
+  inset: 0;
+  opacity: 0.2;
+}
+
+.threshold-card::after {
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.threshold-sky::before {
+  background:
+    linear-gradient(90deg, rgba(var(--sky), 0.42), transparent 42%),
+    repeating-linear-gradient(90deg, rgba(var(--sky), 0.22) 0 1px, transparent 1px 18px);
+}
+
+.threshold-pink::before {
+  background:
+    linear-gradient(90deg, rgba(var(--pink), 0.36), transparent 42%),
+    repeating-linear-gradient(135deg, rgba(var(--pink), 0.2) 0 1px, transparent 1px 16px);
+}
+
+.threshold-emerald::before {
+  background:
+    linear-gradient(90deg, rgba(var(--emerald), 0.34), transparent 42%),
+    radial-gradient(circle at 0.2rem 0.2rem, rgba(var(--emerald), 0.38) 0 1px, transparent 1.6px);
+  background-size: auto, 1rem 1rem;
+}
+
+.threshold-sky { border-left-color: rgba(var(--sky), 0.42); }
+.threshold-pink { border-left-color: rgba(var(--pink), 0.4); }
+.threshold-emerald { border-left-color: rgba(var(--emerald), 0.4); }
+
+.threshold-label,
+.threshold-card h3,
+.threshold-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.threshold-label {
+  color: rgba(203, 213, 225, 0.64);
+  font: 700 0.68rem/1.4 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.threshold-card h3 {
+  margin: 0;
+  color: white;
+  font-size: clamp(1.35rem, 3vw, 2.35rem);
+  line-height: 1.05;
+}
+
+.threshold-card p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
 .split-section {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
@@ -1124,6 +1220,7 @@ h1 {
   .note-grid,
   .signal-grid,
   .table-grid,
+  .threshold-card,
   .calibration-grid,
   .bench,
   .custody-rail {
@@ -1243,6 +1340,10 @@ h1 {
 
   .custody-item {
     min-height: auto;
+  }
+
+  .threshold-card {
+    align-items: start;
   }
 
   .bench-note h3 {
