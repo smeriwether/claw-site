@@ -660,6 +660,16 @@ h1 {
   line-height: 1.64;
 }
 
+.workspace-footnote {
+  max-width: 46rem;
+  margin: 1rem 0 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(203, 213, 225, 0.7);
+  font: 700 0.72rem/1.7 var(--mono);
+  letter-spacing: 0.04em;
+  padding-left: 1rem;
+}
+
 .calibration-section {
   position: relative;
 }
