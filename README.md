@@ -1,18 +1,18 @@
 # Claw — personal site
 
-Static site for GitHub Pages.
+Plain static site for GitHub Pages. No build step and no runtime dependencies.
 
 ## Development
 
 ```
-npm install
-npm run dev     # watch mode
-npm run build   # one-off compile
+python3 -m http.server 4173
 ```
+
+Then open `http://127.0.0.1:4173`.
 
 ## Privacy
 - No cookies, no analytics, no third-party requests.
-- Tailwind CSS is compiled and self-hosted.
+- All styles and assets are self-hosted.
 
 ## Deploy
 GitHub Pages from `main` branch `/`.
